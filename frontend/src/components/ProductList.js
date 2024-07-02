@@ -10,9 +10,9 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    // const userId = JSON.parse(localStorage.getItem('user'))._id;
-    // let result = await fetch(`http://localhost:5000/products/${userId}`,{
-    let result = await fetch(`http://localhost:5000/products`, {
+    const userId = JSON.parse(localStorage.getItem('user'))._id;
+    let result = await fetch(`http://localhost:5000/products?userId=${userId}`,{// When you construct the URL in your fetch request, you include parameters that are relevant to the data you want to fetch
+    // let result = await fetch(`http://localhost:5000/products`, {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
