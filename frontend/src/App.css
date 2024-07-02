@@ -115,6 +115,33 @@
   border: solid 1px #AFE1AF;
 }
 
+.delete-button{
+  border:0;
+  padding: 0;
+  background-color: transparent;
+  color: rgb(0, 0, 67);
+}
+
+.delete-button:hover{
+  /* background-color: red; */
+  cursor: pointer;
+}
+
+li p{
+  display:inline
+}
+
+.update-button{
+  text-decoration-line: none;
+  color:navy
+}
+/* .update-button:hover{
+  background-color: rgba(126, 233, 233, 0.924);
+} */
+.update-button:visited{
+  color:navy
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

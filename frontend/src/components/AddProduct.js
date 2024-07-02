@@ -13,7 +13,7 @@ const AddProduct = () => {
 
         if(!name || !price || !company || !category)
         {
-            setError(true);
+            setError(true);//see line 9
             return false
         }
 

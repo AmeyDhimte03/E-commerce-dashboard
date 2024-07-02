@@ -21,7 +21,7 @@ const Nav = () => {
                     <ul className="nav-ul">
                         <li><Link to="/">Products</Link></li>
                         <li><Link to="/add">Add Products</Link></li>
-                        <li><Link to="/update"> Update Products</Link></li>
+                        {/* <li><Link to="/update"> Update Products</Link></li> */}
                         <li><Link to="/profile">Profile</Link></li>
                         <li> <Link onClick={logout} to="/signup">Logout ({ JSON.parse(auth).name})</Link></li>
                     </ul>
