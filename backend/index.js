@@ -47,6 +47,15 @@ app.post("/add-product", async (req, resp) => {
     resp.send(result);
 });
 
+// app.post("/products/:userId", async (req, resp) => {
+//     const userID = req.body;
+//     const products = await Product.find({"userId":req.params.userId});
+//     if (products.length > 0) {
+//         resp.send(products)
+//     } else {
+//         resp.send({ result: "No Product found" })
+//     }
+// });
 app.get("/products", async (req, resp) => {
     const products = await Product.find();
     if (products.length > 0) {
