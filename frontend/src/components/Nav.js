@@ -14,7 +14,7 @@ const Nav = () => {
             <img
             alt='logo'
             className='logo'
-             src='https://yt3.ggpht.com/ytc/AKedOLR09bCpy_XTq2scU91URc0pWG0EqS_Yc_Zg-r9pBQ=s900-c-k-c0x00ffffff-no-rj' />
+            src='ecomm logo.png' />
             {
                 auth ?
 

@@ -28,7 +28,7 @@ const Login = () => {
             localStorage.setItem('token', JSON.stringify(result.auth));
             navigate("/")
         } else {
-            alert("Please enter connect details")
+            alert("Please enter correct details")
         }
     }
 
@@ -36,7 +36,9 @@ const Login = () => {
         <div className='login'>
             <h1>Login</h1>
             <input type="text" className="inputBox" placeholder='Enter Email'
-                onChange={(e) => setEmail(e.target.value)} value={email} />
+                onChange={(e) => setEmail(e.target.value)} value={email} /> 
+                {/* The value of this input field is bound to the email state variable. */}
+
             <input type="password" className="inputBox" placeholder='Enter Password'
                 onChange={(e) => setPassword(e.target.value)} value={password} />
             <button onClick={handleLogin} className="appButton" type="button">Login</button>
