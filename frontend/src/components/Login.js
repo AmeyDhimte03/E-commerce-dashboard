@@ -4,6 +4,8 @@ const Login = () => {
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [errorDetails,setErrorDetails] = React.useState(false);
+    
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,19 +30,24 @@ const Login = () => {
             localStorage.setItem('token', JSON.stringify(result.auth));
             navigate("/")
         } else {
-            alert("Please enter correct details")
+            setErrorDetails(true);
+            return false;
+            // alert("Please enter correct details")
         }
     }
 
     return (
         <div className='login'>
             <h1>Login</h1>
-            <input type="text" className="inputBox" placeholder='Enter Email'
+            <input type="email" className="inputBox" placeholder='Enter Email'
                 onChange={(e) => setEmail(e.target.value)} value={email} /> 
                 {/* The value of this input field is bound to the email state variable. */}
 
             <input type="password" className="inputBox" placeholder='Enter Password'
                 onChange={(e) => setPassword(e.target.value)} value={password} />
+
+            {errorDetails && <span className='invalid-input'>Please enter correct details</span>}
+
             <button onClick={handleLogin} className="appButton" type="button">Login</button>
         </div>
     )

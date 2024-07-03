@@ -11,6 +11,13 @@ app.use(express.json());
 app.use(cors()); // a middleware
 
 app.post("/register", async (req, resp) => {
+  
+  const existingUser = await User.findOne({ "email":req.body.email });
+  
+  if (existingUser) {
+    return resp.status(400).json({ message: "User already exists" });
+  }
+  
   let user = new User(req.body);
   let result = await user.save();
   result = result.toObject();
@@ -48,8 +55,8 @@ app.post("/add-product", verifyToken, async (req, resp) => {
 });
 
 app.get("/products", verifyToken, async (req, resp) => {
-  const {userId}= req.query;
-  const products = await Product.find({"userId":userId});
+  const { userId } = req.query;
+  const products = await Product.find({ userId: userId });
   if (products.length > 0) {
     resp.send(products);
   } else {
@@ -62,7 +69,10 @@ app.delete("/product/:id", verifyToken, async (req, resp) => {
   resp.send(result);
 });
 
+// Haven't used parameterized URLs for update and delete functionality coz they will be available to update and delete only to authenticated user and they are being filtered out by their id
+
 app.get("/product/:id", verifyToken, async (req, resp) => {
+  //deleting product
   let result = await Product.findOne({ _id: req.params.id });
   if (result) {
     resp.send(result);
@@ -72,6 +82,7 @@ app.get("/product/:id", verifyToken, async (req, resp) => {
 });
 
 app.put("/product/:id", verifyToken, async (req, resp) => {
+  //updating product
   let result = await Product.updateOne(
     { _id: req.params.id },
     { $set: req.body }
@@ -87,7 +98,8 @@ app.put("/product/:id", verifyToken, async (req, resp) => {
   resp.send(result);
 });
 
-app.get("/search/:key", verifyToken,async (req, resp) => {
+app.get("/search/:key", verifyToken, async (req, resp) => {
+  const { userId } = req.query;
   let result = await Product.find({
     $or: [
       {
@@ -100,23 +112,24 @@ app.get("/search/:key", verifyToken,async (req, resp) => {
         category: { $regex: req.params.key },
       },
     ],
+    userId: userId,
   });
   resp.send(result);
 });
 
-function verifyToken(req,resp,next){
-    const token = req.headers['authorization'].split(' ')[1];
-    if(token){
-        Jwt.verify(token,jwtKey,(err,valid)=>{
-            if(err){
-                resp.status(401).send({result:"Please provide valid token"});
-            }else{
-                next();
-            }
-        });
-    }else{
-        resp.status(403).send({result:"Please provide token with headers"});
-    }
+function verifyToken(req, resp, next) {
+  const token = req.headers["authorization"].split(" ")[1];
+  if (token) {
+    Jwt.verify(token, jwtKey, (err, valid) => {
+      if (err) {
+        resp.status(401).send({ result: "Please provide valid token" });
+      } else {
+        next();
+      }
+    });
+  } else {
+    resp.status(403).send({ result: "Please provide token with headers" });
+  }
 }
 
 app.listen(5000);

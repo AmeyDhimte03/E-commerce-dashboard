@@ -5,7 +5,7 @@ const AddProduct = () => {
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [category, setCategory] = React.useState("");
-  const [company, setCompnay] = React.useState("");
+  const [company, setCompany] = React.useState("");
   const [error, setError] = React.useState(false);
 
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ const AddProduct = () => {
         className="inputBox"
         value={company}
         onChange={(e) => {
-          setCompnay(e.target.value);
+          setCompany(e.target.value);
         }}
       />
       {error && !company && (

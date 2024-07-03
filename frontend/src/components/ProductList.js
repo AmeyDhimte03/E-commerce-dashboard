@@ -36,9 +36,10 @@ const ProductList = () => {
   };
 
   const searchHandle = async (event) => {
+    const userId = JSON.parse(localStorage.getItem('user'))._id;
     let key = event.target.value;
     if (key) {
-      let result = await fetch(`http://localhost:5000/search/${key}`, {
+      let result = await fetch(`http://localhost:5000/search/${key}?userId=${userId}`, {
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
