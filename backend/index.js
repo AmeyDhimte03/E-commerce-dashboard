@@ -1,10 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 require("./db/config");
+require('dotenv').config();
 const User = require("./db/User");
 const Product = require("./db/Product");
 const Jwt = require("jsonwebtoken");
-const jwtKey = "e-com";
+// const jwtKey = "e-com";
+const jwtKey = process.env.jwtKey;
 const app = express();
 
 app.use(express.json());
