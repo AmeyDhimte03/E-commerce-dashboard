@@ -5,7 +5,6 @@ require('dotenv').config();
 const User = require("./db/User");
 const Product = require("./db/Product");
 const Jwt = require("jsonwebtoken");
-// const jwtKey = "e-com";
 const jwtKey = process.env.jwtKey;
 const app = express();
 
