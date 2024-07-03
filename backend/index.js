@@ -5,7 +5,7 @@ require('dotenv').config();
 const User = require("./db/User");
 const Product = require("./db/Product");
 const Jwt = require("jsonwebtoken");
-const jwtKey = process.env.jwtKey;
+const jwtKey = process.env.JWT_KEY;
 const app = express();
 
 app.use(express.json());
@@ -133,4 +133,7 @@ function verifyToken(req, resp, next) {
   }
 }
 
-app.listen(5000);
+const PORT = process.env.PORT || 5000
+app.listen(PORT,()=>{
+  console.log(`Server is running on port ${PORT}`);
+});
