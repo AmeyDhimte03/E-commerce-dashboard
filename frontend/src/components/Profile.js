@@ -26,6 +26,8 @@ const Profile = () => {
          <b> Logout</b>
         </Link>
       </li>
+      {/* <li>Thanks for using the website.</li>
+      <li>Contact Us: ameydhimte03@gmail.com</li> */}
     </ul>
   );
 };

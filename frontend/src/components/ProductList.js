@@ -12,10 +12,10 @@ const ProductList = () => {
   const getProducts = async () => {
     const userId = JSON.parse(localStorage.getItem("user"))._id;
     let result = await fetch(
-      `http://localhost:5000/products?userId=${userId}`,
+      `https://e-commerce-dashboard-l9tl.onrender.com/products?userId=${userId}`,
       {
         // When you construct the URL in your fetch request, you include parameters that are relevant to the data you want to fetch
-        // let result = await fetch(`http://localhost:5000/products`, {
+        // let result = await fetch(`https://e-commerce-dashboard-l9tl.onrender.com/products`, {
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
@@ -28,7 +28,7 @@ const ProductList = () => {
   const deleteProduct = async (id) => {
     // console.warn(id);
     if (window.confirm("Are you sure you want to delete this product?")) {
-      let result = await fetch(`http://localhost:5000/product/${id}`, {
+      let result = await fetch(`https://e-commerce-dashboard-l9tl.onrender.com/product/${id}`, {
         method: "Delete",
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
@@ -46,7 +46,7 @@ const ProductList = () => {
     let key = event.target.value;
     if (key) {
       let result = await fetch(
-        `http://localhost:5000/search/${key}?userId=${userId}`,
+        `https://e-commerce-dashboard-l9tl.onrender.com/search/${key}?userId=${userId}`,
         {
           headers: {
             authorization: `bearer ${JSON.parse(
