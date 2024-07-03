@@ -9,7 +9,7 @@ import AddProduct from './components/AddProduct';
 import ProductList from './components/ProductList';
 import UpdateProduct from './components/UpdateComponent';
 import Profile from './components/Profile';
-
+import ContactUs from './components/ContactUs';
 //this project is functional component based
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
 
        <Route path="/signup" element={<SignUp />} />
        <Route path="/login" element={<Login />} />
-
+      <Route path="/contactus" element={<ContactUs/>}/>
      </Routes>
      </BrowserRouter>
      <Footer />{/*Iske andar routing nhi lagayi thi toh BrowserRouter k bahr rakhdo no issues*/}

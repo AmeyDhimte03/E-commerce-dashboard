@@ -8,9 +8,10 @@
   padding: 10px;
 }
 .nav-ul li a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   padding: 5px;
+  font-weight: bold;
 }
 .footer {
   position: absolute;
@@ -140,9 +141,9 @@ li p {
 .update-button:visited {
   color: navy;
 }
-
+/* 
 .profile{
-  list-style-type: none; /* Removes bullets */
+  list-style-type: none;
   padding: 10px;
 }
 
@@ -157,7 +158,43 @@ li p {
 }
 .profile .logout-option:hover{
   color: red;
+} */
+
+.profile {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin-left: 25px;
+  padding: 20px;
 }
+
+.profile h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.profile ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile li {
+  margin-bottom: 10px;
+}
+
+.profile b {
+  font-weight: bold;
+}
+
+.profile .logout-option {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.profile .logout-option:hover {
+  text-decoration: none;
+  color: red;
+}
+
 
 .logo {
   color: #000000;
@@ -167,6 +204,46 @@ li p {
   /* padding-left: 1px; */
   /* padding-right: 1px; */
 }
+
+.contact {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  /* margin: auto; */
+  margin-left:25px;
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  /* border-radius: 5px; */
+  /* background-color: #f9f9f9; */
+}
+
+.contact h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.contact p {
+  margin-bottom: 15px;
+}
+
+.contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact li {
+  margin-bottom: 10px;
+}
+
+.contact a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+
 /* 
 @keyframes App-logo-spin {
   from {

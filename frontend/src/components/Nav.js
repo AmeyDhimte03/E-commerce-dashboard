@@ -18,7 +18,9 @@ const Nav = () => {
             src='shopping-cart.jpg' /> */}
       {auth ? (
         <ul className="nav-ul">
-          <Link to="/" className="logo"><FontAwesomeIcon icon={faCartArrowDown} className="fa-xl" /></Link>
+          <Link to="/" className="logo">
+            <FontAwesomeIcon icon={faCartArrowDown} className="fa-xl" />
+          </Link>
 
           <li>
             <Link to="/">Products</Link>
@@ -30,22 +32,30 @@ const Nav = () => {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          <li>
+          {/* <li>
             {" "}
             <Link onClick={logout} to="/signup">
               Logout ({JSON.parse(auth).name})
             </Link>
+          </li> */}
+          <li>
+            <Link to="/contactus">Contact Us</Link>
           </li>
         </ul>
       ) : (
         <ul className="nav-ul">
-          <Link to="/" className="logo"><FontAwesomeIcon icon={faCartArrowDown} className="fa-xl" /></Link>
+          <Link to="/" className="logo">
+            <FontAwesomeIcon icon={faCartArrowDown} className="fa-xl" />
+          </Link>
           <li>
             {" "}
             <Link to="/signup">Sign Up</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/contactus">Contact Us</Link>
           </li>
         </ul>
       )}
